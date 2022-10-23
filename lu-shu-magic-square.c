@@ -1,4 +1,4 @@
-//CS2600 Quiz 3 Question 4.1
+//CS2600 Quiz 3 Question 4.2
 
 //create a print function that can print a 3x3 array.
 
@@ -13,15 +13,19 @@
     //test 3 columns ==15?
     //test 2 diagonals ==15?
 
-//part 1.
+//part 2.
 //main:
-    //define some arrays and print to screen then run the test function.
+    //randomly generate some arrays and test each matrix for validity.
+    //record each iteration.
+    //print total number of squares generated before success.
+    //print the successful result.
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #define TRUE 1
 #define FALSE 0
-void printMatrix(int arr[3][3])
+void printMatrix(int arr[3][3])//print matrix to screen.
 {
     printf("3 x 3  Matrix\n+---+---+---+\n");
 
@@ -68,7 +72,7 @@ int testMatrix(int arr[3][3])
 
 return TRUE;
 }
-void validateSquare(int arr[3][3]){
+void validateSquare(int arr[3][3]){//func that handles print statements / testing
     if(testMatrix(arr)){
         printMatrix(arr);
         printf("Is a Lu Sho Magix Square\n");
