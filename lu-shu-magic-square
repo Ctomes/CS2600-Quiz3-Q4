@@ -1,0 +1,18 @@
+//CS2600 Quiz 3 Question 4.1
+
+//create a print function that can print a 3x3 array.
+
+    //takes an int array as an arg
+    // display each element aligned for legibility.
+
+
+//create a function that can determine if an array meets LSMS "Lu Shu Magic Square" requirements.
+
+    //take an array as an arguement.
+    //test 3 rows ==15?
+    //test 3 columns ==15?
+    //test 2 diagonals ==15?
+
+//part 1.
+//main:
+    //define some arrays and print to screen then run the test function.
