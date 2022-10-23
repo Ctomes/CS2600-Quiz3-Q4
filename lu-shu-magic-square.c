@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <time.h>
 #define TRUE 1
 #define FALSE 0
 void printMatrix(int arr[3][3])//print matrix to screen.
@@ -72,21 +72,42 @@ int testMatrix(int arr[3][3])
 
 return TRUE;
 }
-void validateSquare(int arr[3][3]){//func that handles print statements / testing
+int validateSquare(int arr[3][3]){ //validate no longer prints matrix since its called many times. return is now a bool for our loop condition.
     if(testMatrix(arr)){
-        printMatrix(arr);
-        printf("Is a Lu Sho Magix Square\n");
+        //printMatrix(arr);
+        //printf("Is a Lu Sho Magix Square\n");
+        return TRUE;
     }else{ 
-        printMatrix(arr);
-        printf("Is not a Lu Sho Magix Square\n");
+        //printMatrix(arr);
+        //printf("Is not a Lu Sho Magix Square\n");
+        return FALSE;
     }
 }
+
+void swapIndex(int arr[9]){ // swaps the value in two random slots
+    int randIndexOne = rand()%9;
+    int randIndexTwo = rand()%9;
+
+    int temp = arr[randIndexOne];
+    arr[randIndexOne] = arr[randIndexTwo];
+    arr[randIndexTwo] = temp;
+}
 int main(){
-    int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}}; //invalid LSMS
-    int arr2[3][3]= {{4,9,2},{3,5,7},{8,1,6}};
-
-    validateSquare(arr);
-    validateSquare(arr2);
-
+    unsigned long counter = 0;
+    int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+    srand((unsigned) time(NULL));
+    
+    do{
+        int maxIterations = rand()%50;  //choose a random number of iterations to swap.
+          for(int i = 0; rand()%50; i++)
+          {
+            swapIndex(arr); //swap 2 random values over and over to construct a new matrix.
+          }
+          counter++;
+    }while(!validateSquare(arr)); //validate the matrix.
+    printMatrix(arr);//print the resultant matrix.
+    printf("The total number of squares generated before success were %lu\n", counter-1); //print the number of iterations.
+    
+    
 return EXIT_SUCCESS;
 }
